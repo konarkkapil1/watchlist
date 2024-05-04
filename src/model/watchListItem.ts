@@ -2,7 +2,6 @@ import mongoose, { Document } from "mongoose";
 const Schema = mongoose.Schema;
 
 export interface IWatchlistItem extends Document {
-    name: string;
     contentId: String;
     contentType: String;
     watchCount: number;
@@ -10,18 +9,13 @@ export interface IWatchlistItem extends Document {
 }
 
 const watchListItem = new Schema<IWatchlistItem>({
-    name: {
-        type: String,
-        required: true
-    },
     contentId: {
         type: mongoose.Schema.Types.ObjectId,
-        refPath: "contentType",
         required: true,
     },
     contentType: {
         type: String,
-        enum: ['TVShow', 'Movie'],
+        enum: ['tvshow', 'movie'],
         required: true,
     },
     watchCount: {

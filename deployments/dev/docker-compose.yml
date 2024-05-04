@@ -15,7 +15,7 @@ services:
       - APP_PORT=3000
       - MONGO_URI=mongodb://root:root@mongodb:27017/watchlist?authSource=admin
     ports:
-      - "80:3000"
+      - "3000:3000"
     networks:
       - app
     depends_on:
